@@ -1,9 +1,8 @@
-import Labs from "./Labs";
+import Labs from "./Labs/index";
 
 function App() {
   return (
     <div>
-      <h1>Labs</h1>
       <Labs />
     </div>
   );
