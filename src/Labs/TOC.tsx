@@ -5,19 +5,19 @@ export default function TOC() {
     <div>
       <ul>
         <li>
-          <Link to="/Kambaz">Kambaz</Link>
-        </li>
-        <li>
           <Link to="/Labs">Labs</Link>
         </li>
         <li>
-          <Link to="/Lab1">Lab1</Link>
+          <Link to="/Labs/Lab1">Lab1</Link>
         </li>
         <li>
-          <Link to="/Lab2">Lab2</Link>
+          <Link to="/Labs/Lab2">Lab2</Link>
         </li>
         <li>
-          <Link to="/Lab3">Lab3</Link>
+          <Link to="/Labs/Lab3">Lab3</Link>
+        </li>
+        <li>
+          <Link to="/Kambaz">Kambaz</Link>
         </li>
       </ul>
     </div>
