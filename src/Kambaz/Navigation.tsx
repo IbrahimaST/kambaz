@@ -6,22 +6,28 @@ export default function KambazNavigation() {
     <div id="wd-kambaz-navigation">
       <a href="https://www.northeastern.edu/" id="wd-neu-link" target="_blank">
         Northeastern
-      </a>
+      </a>{" "}
+      <br />
       <Link to="/Kambaz/Account" id="wd-account-link">
         Account
-      </Link>
+      </Link>{" "}
+      <br />
       <Link id="wd-dashboard-link" to="/Kambaz/Dashboard">
         Dashboard
-      </Link>
+      </Link>{" "}
+      <br />
       <Link id="wd-courses-link" to="/Kambaz/Dashboard">
         Courses
-      </Link>
+      </Link>{" "}
+      <br />
       <Link id="wd-calendar-link" to="/Kambaz/Calendar">
         Calendar
-      </Link>
+      </Link>{" "}
+      <br />
       <Link id="wd-inbox-link" to="/Kambaz/Inbox">
         Inbox
-      </Link>
+      </Link>{" "}
+      <br />
       <Link id="wd-labs-link" to="/Labs">
         Labs
       </Link>
