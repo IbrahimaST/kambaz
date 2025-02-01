@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AccountNavigation = () => {
+export default function AccountNavigation() {
   return (
     <div id="wd-account-navigation">
       <Link to={"../Signin"}>Signin</Link> <br />
@@ -9,6 +9,4 @@ const AccountNavigation = () => {
       <Link to={"../Profile"}>Profile</Link>
     </div>
   );
-};
-
-export default AccountNavigation;
+}
