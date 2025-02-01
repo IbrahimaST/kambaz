@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function Signin() {
   return (
@@ -15,7 +15,7 @@ export default function Signin() {
         Sign In
       </Link>{" "}
       <br />
-      <Link to="../Signin" id="wd-signup-link">
+      <Link to="../Signup" id="wd-signup-link">
         Sign Up
       </Link>
     </div>
