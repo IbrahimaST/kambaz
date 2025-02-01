@@ -1,5 +1,6 @@
 import Account from "./Account";
 import { Route, Routes, Navigate } from "react-router";
+import Dashboard from "./Dashboard";
 
 export default function Kambaz() {
   return (
@@ -8,6 +9,7 @@ export default function Kambaz() {
       <Routes>
         <Route path="/" element={<Navigate to="/Kambaz/Account/Signin" />} />
         <Route path="/Account/*" element={<Account />} />
+        <Route path="/Dashboard" element={<Dashboard />}></Route>
       </Routes>
     </div>
   );
