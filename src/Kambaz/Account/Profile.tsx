@@ -56,7 +56,7 @@ export default function Profile() {
         <option value="ADMIN">Admin</option>
       </select>{" "}
       <br />
-      <Link to="Kambaz/Account/Signin" id="wd-signup-link">
+      <Link to="Kambaz/Account/Signup" id="wd-signup-link">
         Sign Out
       </Link>
     </div>

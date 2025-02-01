@@ -10,8 +10,8 @@ export default function Account() {
       <Routes>
         <Route path="/" element={<Navigate to={"Signin"} />} />
         <Route path="/Signin" element={<Signin />} />
-        <Route path="Profile" element={<Profile />} />
-        <Route path="Signup" element={<Signup />} />
+        <Route path="/Profile" element={<Profile />} />
+        <Route path="/Signup" element={<Signup />} />
       </Routes>
     </div>
   );
