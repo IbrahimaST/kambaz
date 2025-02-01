@@ -11,11 +11,11 @@ export default function Signin() {
         className="wd-password"
       />{" "}
       <br />
-      <Link to="/Kambaz/Account/Profile" id="wd-signin-btn">
+      <Link to="../Profile" id="wd-signin-btn">
         Sign In
       </Link>{" "}
       <br />
-      <Link to="Kambaz/Account/Signin" id="wd-signup-link">
+      <Link to="../Signin" id="wd-signup-link">
         Sign Up
       </Link>
     </div>

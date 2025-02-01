@@ -6,8 +6,8 @@ export default function Kambaz() {
     <div id="wd-kambaz">
       <h1>Kambaz</h1>
       <Routes>
-        <Route path="/" element={<Navigate to="/Kambaz/Account/index" />} />
-        <Route path="/Account/" element={<Account />} />
+        <Route path="/" element={<Navigate to="/Kambaz/Account/Signin" />} />
+        <Route path="/Account/*" element={<Account />} />
       </Routes>
     </div>
   );
