@@ -26,8 +26,8 @@ export default function Signup() {
         className="wd-verify-password"
       />{" "}
       <br />
-      <Link to="Kambaz/Account/Signup">Sign up</Link> <br />
-      <Link to="Kambaz/Account/Signin">Sign in</Link>
+      <Link to="/Kambaz/Account/Signup">Sign up</Link> <br />
+      <Link to="/Kambaz/Account/Signin">Sign in</Link>
     </div>
   );
 }
