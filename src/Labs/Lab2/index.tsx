@@ -1,6 +1,7 @@
 import "./index.css";
 import ForegroundColors from "./ForegroundColors";
 import BackgroundColors from "./BackgroundColor";
+import Borders from "./Borders";
 
 export default function Lab2() {
   return (
@@ -55,6 +56,8 @@ export default function Lab2() {
             </p>
           </div>
         </div>
+
+        {<Borders />}
       </div>
     </div>
   );
