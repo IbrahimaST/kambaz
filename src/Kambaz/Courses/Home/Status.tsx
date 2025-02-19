@@ -1,17 +1,51 @@
+import { MdDoNotDisturbAlt } from "react-icons/md";
+import { FaCheckCircle } from "react-icons/fa";
+import { BiImport } from "react-icons/bi";
+import { LiaFileImportSolid } from "react-icons/lia";
+import { Button } from "react-bootstrap";
+import { FaHouse } from "react-icons/fa6";
+import { MdClass } from "react-icons/md";
+import { MdAnnouncement } from "react-icons/md";
+import { SiGoogleanalytics } from "react-icons/si";
+import { IoNotifications } from "react-icons/io5";
+
 export default function CourseStatus() {
   return (
-    <div id="wd-course-status">
+    <div id="wd-course-status" style={{ width: "350px" }}>
       <h2>Course Status</h2>
-      <button type="button">Unpublish</button>{" "}
-      <button type="button">Publish</button>
-      <br />
-      <button type="button">Import Existing Content</button> <br />
-      <button type="button">Import from Commons</button> <br />
-      <button type="button">Choose Home Page</button> <br />
-      <button type="button">View Course Stream</button> <br />
-      <button type="button">New Announcement</button> <br />
-      <button type="button">New Analytics</button> <br />
-      <button type="button">View Course Notifications</button>
+      <div className="d-flex">
+        <div className="w-50 pe-1">
+          <Button variant="secondary" size="lg" className="w-100 text-nowrap">
+            <MdDoNotDisturbAlt className="me-2 fs-5" /> Unpublish
+          </Button>
+        </div>
+        <div className="w-50 pe-1">
+          <Button variant="success" size="lg" className="w-100 text-nowrap">
+            <FaCheckCircle className="me-2 fs-5" /> Publish
+          </Button>
+        </div>
+      </div>
+      <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+        <BiImport className="me-2 fs-5" /> Import Existing Content
+      </Button>
+      <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+        <LiaFileImportSolid className="me-2 fs-5" /> Import from Commons
+      </Button>
+      <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+        <FaHouse className="me-2 fs-5" /> Choose Home Page
+      </Button>
+      <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+        <MdClass /> View Course Stream
+      </Button>
+      <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+        <MdAnnouncement /> New Announcement
+      </Button>
+      <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+        <SiGoogleanalytics /> New Analytics
+      </Button>
+      <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+        <IoNotifications /> View Course Notiifications
+      </Button>
     </div>
   );
 }

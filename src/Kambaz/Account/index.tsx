@@ -3,10 +3,11 @@ import Signin from "./Signin";
 import Profile from "./Profile";
 import Signup from "./Signup";
 import AccountNavigation from "./AccountNavigation";
+import "../styles.css";
 
 export default function Account() {
   return (
-    <div id="wd-account-screen">
+    <div id="wd-account-screen" className="wd-main-content-offset">
       <h2>Account</h2>
       <table>
         <tr>
