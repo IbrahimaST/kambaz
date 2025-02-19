@@ -8,7 +8,7 @@ import { FaAlignJustify } from "react-icons/fa";
 
 export default function Courses() {
   return (
-    <div id="wd-courses">
+    <div id="wd-courses" className="wd-main-content-offset">
       <h2 className="text-danger">
         <FaAlignJustify className="me-4 fs-4 mb-1" />
         Course 1234
