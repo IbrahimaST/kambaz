@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Account from "./Account";
 
 export default function KambazNavigation() {
   return (
