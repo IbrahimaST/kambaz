@@ -13,6 +13,10 @@ import Flex from "./Flex";
 import ReactIcons from "./ReactIcons";
 import { Container } from "react-bootstrap";
 import BootstrapGrids from "./BootstrapGrids";
+import BootstrapTables from "./BootstrapTables";
+import BootstrapLists from "./BootstrapLists";
+import BootstrapForms from "./BootstrapForms";
+import BootstrapNavigation from "./BootstrapNavigation";
 
 export default function Lab2() {
   return (
@@ -82,6 +86,10 @@ export default function Lab2() {
       {<Flex />}
       {<ReactIcons />}
       {<BootstrapGrids />}
+      {<BootstrapTables />}
+      {<BootstrapLists />}
+      {<BootstrapForms />}
+      {<BootstrapNavigation />}
     </Container>
   );
 }
