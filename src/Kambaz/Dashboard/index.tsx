@@ -9,10 +9,13 @@ import {
   Col,
   Button,
 } from "react-bootstrap";
+import "../styles.css";
+import KambazNavigation from "../Navigation";
 
 export default function Dashboard() {
   return (
-    <div id="wd-dashboard">
+    <div id="wd-dashboard" className="wd-main-content-offset">
+      <KambazNavigation />
       <h1 id="wd-dashboard-title">Dashboard</h1>
       <hr />
       <h2 id="wd-dashboard-published">Published Courses (7)</h2>
