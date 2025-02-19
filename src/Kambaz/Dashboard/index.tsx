@@ -1,71 +1,91 @@
 import { Link } from "react-router-dom";
 
 export default function Dashboard() {
-  const courses = [
-    {
-      id: "COOK1234",
-      title: "Cooking",
-      image: "/images/cooking.webp",
-      description: "Studying Food",
-    },
-    {
-      id: "COMM1234",
-      title: "Debate",
-      image: "/images/debate.webp",
-      description: "Argumentation",
-    },
-    {
-      id: "LANG1234",
-      title: "French",
-      image: "/images/french.jpg",
-      description: "Language of Love",
-    },
-    {
-      id: "SCI1234",
-      title: "Geology",
-      image: "/images/geology.jpeg",
-      description: "Study of Rocks",
-    },
-    {
-      id: "LANG1235",
-      title: "Latin",
-      image: "/images/latin.jpg",
-      description: "Language of the Dead",
-    },
-    {
-      id: "PSYCH1234",
-      title: "Psychology",
-      image: "/images/psychology.jpg",
-      description: "The Human Mind",
-    },
-  ];
-
   return (
     <div id="wd-dashboard">
       <h1 id="wd-dashboard-title">Dashboard</h1>
       <hr />
-      <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>
+      <h2 id="wd-dashboard-published">Published Courses (6)</h2>
       <hr />
       <div id="wd-dashboard-courses">
-        {courses.map((course) => (
-          <div key={course.id} className="wd-dashboard-course">
-            <Link
-              to={`/Kambaz/Courses/${course.id}/Home`}
-              className="wd-dashboard-course-link"
-            >
-              <img src={course.image} width={200} />
-              <div>
-                <h5>
-                  {course.id} {course.title}
-                </h5>
-                <p className="wd-dashboard-course-title">
-                  {course.description}
-                </p>
-                <button>Go</button>
-              </div>
-            </Link>
-          </div>
-        ))}
+        <div className="wd-dashboard-course">
+          <Link
+            to="/Kambaz/Courses/COOK1234/Home"
+            className="wd-dashboard-course-link"
+          >
+            <img src="/images/cooking.webp" width={200} />
+            <div>
+              <h5>COOK1234 Cooking</h5>
+              <p className="wd-dashboard-course-title">Studying Food</p>
+              <button>Go</button>
+            </div>
+          </Link>
+        </div>
+        <div className="wd-dashboard-course">
+          <Link
+            to="/Kambaz/Courses/COMM1234/Home"
+            className="wd-dashboard-course-link"
+          >
+            <img src="/images/debate.webp" width={200} />
+            <div>
+              <h5>COMM1234 Debate</h5>
+              <p className="wd-dashboard-course-title">Argumentation</p>
+              <button>Go</button>
+            </div>
+          </Link>
+        </div>
+        <div className="wd-dashboard-course">
+          <Link
+            to="/Kambaz/Courses/LANG1234/Home"
+            className="wd-dashboard-course-link"
+          >
+            <img src="/images/french.jpg" width={200} />
+            <div>
+              <h5>LANG1234 French</h5>
+              <p className="wd-dashboard-course-title">Language of Love</p>
+              <button>Go</button>
+            </div>
+          </Link>
+        </div>
+        <div className="wd-dashboard-course">
+          <Link
+            to="/Kambaz/Courses/SCI1234/Home"
+            className="wd-dashboard-course-link"
+          >
+            <img src="/images/geology.jpeg" width={200} />
+            <div>
+              <h5>SCI1234 Geology</h5>
+              <p className="wd-dashboard-course-title">Study of Rocks</p>
+              <button>Go</button>
+            </div>
+          </Link>
+        </div>
+        <div className="wd-dashboard-course">
+          <Link
+            to="/Kambaz/Courses/LANG1235/Home"
+            className="wd-dashboard-course-link"
+          >
+            <img src="/images/latin.jpg" width={200} />
+            <div>
+              <h5>LANG1235 Latin</h5>
+              <p className="wd-dashboard-course-title">Language of the Dead</p>
+              <button>Go</button>
+            </div>
+          </Link>
+        </div>
+        <div className="wd-dashboard-course">
+          <Link
+            to="/Kambaz/Courses/PSYCH1234/Home"
+            className="wd-dashboard-course-link"
+          >
+            <img src="/images/psychology.jpg" width={200} />
+            <div>
+              <h5>PSYCH1234 Psychology</h5>
+              <p className="wd-dashboard-course-title">The Human Mind</p>
+              <button>Go</button>
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
   );
