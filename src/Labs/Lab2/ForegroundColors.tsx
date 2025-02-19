@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function ForegroundColors() {
   return (
     <div id="wd-css-colors">

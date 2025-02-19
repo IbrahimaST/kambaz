@@ -2,6 +2,14 @@ import "./index.css";
 import ForegroundColors from "./ForegroundColors";
 import BackgroundColors from "./BackgroundColor";
 import Borders from "./Borders";
+import Padding from "./Padding";
+import Corners from "./Corners";
+import Dimensions from "./Dimensions";
+import Positions from "./Positions";
+import Zindex from "./Zindex";
+import Float from "./Float";
+import GridLayout from "./GridLayout";
+import Flex from "./Flex";
 
 export default function Lab2() {
   return (
@@ -56,9 +64,19 @@ export default function Lab2() {
             </p>
           </div>
         </div>
-
-        {<Borders />}
       </div>
+
+      {<ForegroundColors />}
+      {<BackgroundColors />}
+      {<Borders />}
+      {<Padding />}
+      {<Corners />}
+      {<Dimensions />}
+      {<Positions />}
+      {<Zindex />}
+      {<Float />}
+      {<GridLayout />}
+      {<Flex />}
     </div>
   );
 }
