@@ -10,6 +10,9 @@ import ImpliedReturns from "./ImpliedReturns";
 import TemplateLiterals from "./TemplateLiterals";
 import SimpleArrays from "./SimpleArrays";
 import ArrayIndexAndLength from "./ArrayIndexAndLength";
+import AddingAndRemovingDataToFromArrays from "./AddingAndRemovingDataToFromArrays";
+import ForLoops from "./ForLoops";
+import MapFunction from "./MapFunction";
 
 export default function Lab3() {
   return (
@@ -27,6 +30,9 @@ export default function Lab3() {
       <TemplateLiterals />
       <SimpleArrays />
       <ArrayIndexAndLength />
+      <AddingAndRemovingDataToFromArrays />
+      <ForLoops />
+      <MapFunction />
     </div>
   );
 }
