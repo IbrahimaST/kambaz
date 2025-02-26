@@ -1,26 +1,23 @@
 import { Link } from "react-router-dom";
 import { Nav, NavItem, NavLink } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 
 export default function TOC() {
+  const { pathname } = useLocation();
   return (
-    <Nav variant="pills">
+    <Nav variant="pills" id="wd-toc">
       <NavItem>
-        <NavLink to="/Labs" as={Link}>
-          Labs
-        </NavLink>
-      </NavItem>
-      <NavItem>
-        <NavLink to="/Labs/Lab1" as={Link}>
+        <NavLink to="/Labs/Lab1" as={Link} active={pathname.includes("Lab1")}>
           Lab 1
         </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink to="/Labs/Lab2" as={Link} active>
+        <NavLink to="/Labs/Lab2" as={Link} active={pathname.includes("Lab2")}>
           Lab 2
         </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink to="/Labs/Lab3" as={Link}>
+        <NavLink to="/Labs/Lab3" as={Link} active={pathname.includes("Lab3")}>
           Lab 3
         </NavLink>
       </NavItem>
