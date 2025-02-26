@@ -23,5 +23,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
     },
-  "include": ["src", "src/Labs/Lab3/todos/todos.json"]
+  "include": ["src", "src/Labs/Lab3/todos/todos.json", "src/Kambaz/Database/courses.json"]
 }

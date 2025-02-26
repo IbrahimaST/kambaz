@@ -1,3 +1,72 @@
-let courses = [{
-    
-}]
+[
+    {
+      "_id": "C101",
+      "name": "Cooking",
+      "number": "COOK1234",
+      "startDate": "2023-01-10",
+      "endDate": "2023-05-15",
+      "department": "Culinary Arts",
+      "credits": 3,
+      "description": "Studying Food"
+    },
+    {
+      "_id": "C102",
+      "name": "Debate",
+      "number": "COMM1234",
+      "startDate": "2023-01-10",
+      "endDate": "2023-05-15",
+      "department": "Communications",
+      "credits": 3,
+      "description": "Argumentation"
+    },
+    {
+      "_id": "C103",
+      "name": "French",
+      "number": "LANG1234",
+      "startDate": "2023-01-10",
+      "endDate": "2023-05-15",
+      "department": "Languages",
+      "credits": 3,
+      "description": "Language of Love"
+    },
+    {
+      "_id": "C104",
+      "name": "Geology",
+      "number": "SCI1234",
+      "startDate": "2023-01-10",
+      "endDate": "2023-05-15",
+      "department": "Sciences",
+      "credits": 3,
+      "description": "Study of Rocks"
+    },
+    {
+      "_id": "C105",
+      "name": "Latin",
+      "number": "LANG1235",
+      "startDate": "2023-01-10",
+      "endDate": "2023-05-15",
+      "department": "Languages",
+      "credits": 3,
+      "description": "Language of the Dead"
+    },
+    {
+      "_id": "C106",
+      "name": "Psychology",
+      "number": "PSYCH1234",
+      "startDate": "2023-01-10",
+      "endDate": "2023-05-15",
+      "department": "Social Sciences",
+      "credits": 3,
+      "description": "The Human Mind"
+    },
+    {
+      "_id": "C107",
+      "name": "Cartography",
+      "number": "GEO1234",
+      "startDate": "2023-01-10",
+      "endDate": "2023-05-15",
+      "department": "Geography",
+      "credits": 3,
+      "description": "Study of Maps"
+    }
+  ]
