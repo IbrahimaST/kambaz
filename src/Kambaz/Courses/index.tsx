@@ -1,19 +1,22 @@
 import Modules from "./Modules";
 import CourseNavigation from "./Navigation";
-import { Routes, Route, Navigate } from "react-router";
+import { Routes, Route, Navigate, useParams } from "react-router";
 import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";
 import { FaAlignJustify } from "react-icons/fa";
 import PeopleTable from "./People/Table";
 import "../styles.css";
+import { courses } from "../Database";
 
 export default function Courses() {
+  const { cid } = useParams();
+  const course = courses.find((course) => course._id == cid);
   return (
     <div id="wd-courses" className="wd-main-content-offset">
       <h2 className="text-danger">
         <FaAlignJustify className="me-4 fs-4 mb-1" />
-        Course 1234
+        {courses && course.name}
       </h2>
       <hr />
       <div className="d-flex">
