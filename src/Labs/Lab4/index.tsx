@@ -1,3 +1,4 @@
+import BooleanStateVariables from "./BooleanStateVariables";
 import ClickEvent from "./ClickEvent";
 import Counter from "./Counter";
 import PassingDataOnEvent from "./PassingDataOnEvent";
@@ -15,6 +16,7 @@ export default function Lab4() {
       <PassingDataOnEvent />
       <PassingFunctions theFunction={sayHello} />
       <Counter />
+      <BooleanStateVariables />
     </div>
   );
 }
