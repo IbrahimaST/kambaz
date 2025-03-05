@@ -13,6 +13,7 @@ export default function PassingDataOnEvent() {
       >
         Pass 2 and 3 to add()
       </button>
+      <hr />
     </div>
   );
 }
