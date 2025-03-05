@@ -1,6 +1,7 @@
+import { useState } from "react";
+
 export default function Counter() {
-  let count = 7;
-  console.log(count);
+  const [count, setCount] = useState(7);
   return (
     <div id="wd-counter-use-state">
       <h2>Counter: {count}</h2>
@@ -8,8 +9,7 @@ export default function Counter() {
         className="btn btn-success"
         id="wd-counter-up-click"
         onClick={() => {
-          count++;
-          console.log(count);
+          setCount(count + 1);
         }}
       >
         Up
@@ -18,12 +18,12 @@ export default function Counter() {
         className="btn btn-danger"
         id="wd-counter-down-click"
         onClick={() => {
-          count--;
-          console.log(count);
+          setCount(count - 1);
         }}
       >
         Down
       </button>
+      <hr />
     </div>
   );
 }
