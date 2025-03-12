@@ -12,11 +12,12 @@ import { courses } from "../Database";
 export default function Courses() {
   const { cid } = useParams();
   const course = courses.find((course) => course._id == cid);
+
   return (
     <div id="wd-courses" className="wd-main-content-offset">
       <h2 className="text-danger">
         <FaAlignJustify className="me-4 fs-4 mb-1" />
-        {courses && course.name}
+        {course && course.name}
       </h2>
       <hr />
       <div className="d-flex">
