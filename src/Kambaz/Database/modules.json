@@ -1,0 +1,87 @@
+[
+    {
+      "_id": "M101",
+      "name": "Introduction to Culinary Arts",
+      "description": "Basic principles of cooking and food preparation.",
+      "course": "C101",
+      "lessons": [
+        {
+          "_id": "L101",
+          "name": "History of Cooking",
+          "description": "A brief history of culinary traditions.",
+          "module": "M101"
+        },
+        {
+          "_id": "L102",
+          "name": "Cooking Fundamentals",
+          "description": "Basic techniques and methods of cooking.",
+          "module": "M101"
+        }
+      ]
+    },
+    {
+      "_id": "M102",
+      "name": "Argumentation and Debate",
+      "description": "Understanding logical reasoning and effective debate.",
+      "course": "C102",
+      "lessons": [
+        {
+          "_id": "L201",
+          "name": "Debate Strategies",
+          "description": "Techniques for forming and countering arguments.",
+          "module": "M102"
+        },
+        {
+          "_id": "L202",
+          "name": "Public Speaking",
+          "description": "Improving speech clarity and confidence.",
+          "module": "M102"
+        }
+      ]
+    },
+    {
+      "_id": "M103",
+      "name": "French Language Essentials",
+      "description": "Introduction to French vocabulary and grammar.",
+      "course": "C103",
+      "lessons": [
+        {
+          "_id": "L301",
+          "name": "Basic French Phrases",
+          "description": "Common expressions and greetings.",
+          "module": "M103"
+        },
+        {
+          "_id": "L302",
+          "name": "French Grammar Basics",
+          "description": "Understanding French sentence structure.",
+          "module": "M103"
+        }
+      ]
+    },
+    {
+      "_id": "M104",
+      "name": "Geology Basics",
+      "description": "Study of rock formations and geological processes.",
+      "course": "C104"
+    },
+    {
+      "_id": "M105",
+      "name": "Latin Language Fundamentals",
+      "description": "Exploring Latin vocabulary and grammar.",
+      "course": "C105"
+    },
+    {
+      "_id": "M106",
+      "name": "Introduction to Psychology",
+      "description": "Fundamentals of human behavior and cognition.",
+      "course": "C106"
+    },
+    {
+      "_id": "M107",
+      "name": "Fundamentals of Cartography",
+      "description": "Introduction to map-making and geographic data representation.",
+      "course": "C107"
+    }
+  ]
+  
