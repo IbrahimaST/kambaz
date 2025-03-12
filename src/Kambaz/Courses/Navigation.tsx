@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { useParams, useLocation } from "react-router-dom";
-import { courses } from "../Database";
 
 export default function CourseNavigation() {
   const links = [
@@ -13,6 +12,7 @@ export default function CourseNavigation() {
     "Grades",
     "People",
   ];
+
   const { pathname } = useLocation();
   const { cid } = useParams();
   const currentPage = pathname.split("/").pop();
@@ -24,8 +24,8 @@ export default function CourseNavigation() {
           key={index}
           to={`/Kambaz/Courses/${cid}/${link}`}
           id="wd-course-home-link"
-          className={`list-group-item ${
-            currentPage === link ? "active" : ""
+          className={`list-group-item text-danger ${
+            currentPage === link ? "active text-black" : ""
           } border border-0`}
         >
           {link}
