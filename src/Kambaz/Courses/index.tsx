@@ -11,7 +11,7 @@ import { courses } from "../Database";
 
 export default function Courses() {
   const { cid } = useParams();
-  const course = courses.find((course) => course._id == cid);
+  const course = courses.find((course) => course._id === cid);
 
   return (
     <div id="wd-courses" className="wd-main-content-offset">
