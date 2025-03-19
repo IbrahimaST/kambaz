@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { useParams, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-export default function CourseNavigation() {
+export default function CourseNavigation({ cid }) {
   const links = [
     "Home",
     "Modules",
@@ -14,8 +14,9 @@ export default function CourseNavigation() {
   ];
 
   const { pathname } = useLocation();
-  const { cid } = useParams();
   const currentPage = pathname.split("/").pop();
+  console.log("Current Path:", pathname);
+  console.log("Extracted CID:", cid);
 
   return (
     <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0">

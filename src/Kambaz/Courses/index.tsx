@@ -23,18 +23,16 @@ export default function Courses() {
       <hr />
       <div className="d-flex">
         <div className="d-none d-md-block">
-          <CourseNavigation />
+          {/* Pass cid as a prop to ensure it is correctly received */}
+          <CourseNavigation cid={cid} />
         </div>
         <div className="flex-fill">
           <Routes>
-            <Route path="/" element={<Navigate to="Home" />}></Route>
+            <Route path="/" element={<Navigate to="Home" />} />
             <Route path="Home" element={<Home />} />
             <Route path="Modules" element={<Modules />} />
             <Route path="Assignments" element={<Assignments />} />
-            <Route
-              path="Assignments/:aid"
-              element={<AssignmentEditor />}
-            ></Route>
+            <Route path="Assignments/:aid" element={<AssignmentEditor />} />
             <Route path="People" element={<PeopleTable />} />
           </Routes>
         </div>
