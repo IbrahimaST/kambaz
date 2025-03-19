@@ -11,6 +11,7 @@ import { courses } from "../Database";
 
 export default function Courses() {
   const { cid } = useParams();
+  console.log("CID in Courses:", cid);
   const course = courses.find((course) => course._id === cid);
   const { pathname } = useLocation();
 
@@ -23,7 +24,6 @@ export default function Courses() {
       <hr />
       <div className="d-flex">
         <div className="d-none d-md-block">
-          {/* Pass cid as a prop to ensure it is correctly received */}
           <CourseNavigation cid={cid} />
         </div>
         <div className="flex-fill">
