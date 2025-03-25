@@ -63,25 +63,80 @@
       "_id": "M104",
       "name": "Geology Basics",
       "description": "Study of rock formations and geological processes.",
-      "course": "C104"
+      "course": "C104",
+      "lessons": [
+        {
+          "_id": "L401",
+          "name": "Rock Types and Formation",
+          "description": "Introduction to igneous, sedimentary, and metamorphic rocks.",
+          "module": "M104"
+        },
+        {
+          "_id": "L402",
+          "name": "Geological Processes",
+          "description": "Understanding plate tectonics, erosion, and geological change.",
+          "module": "M104"
+        }
+      ]
     },
     {
       "_id": "M105",
       "name": "Latin Language Fundamentals",
       "description": "Exploring Latin vocabulary and grammar.",
-      "course": "C105"
+      "course": "C105",
+      "lessons": [
+        {
+          "_id": "L501",
+          "name": "Basic Latin Vocabulary",
+          "description": "Essential words and phrases in Latin.",
+          "module": "M105"
+        },
+        {
+          "_id": "L502",
+          "name": "Latin Grammatical Structure",
+          "description": "Understanding cases, declensions, and sentence construction.",
+          "module": "M105"
+        }
+      ]
     },
     {
       "_id": "M106",
       "name": "Introduction to Psychology",
       "description": "Fundamentals of human behavior and cognition.",
-      "course": "C106"
+      "course": "C106",
+      "lessons": [
+        {
+          "_id": "L601",
+          "name": "Cognitive Processes",
+          "description": "Exploring perception, memory, and decision-making.",
+          "module": "M106"
+        },
+        {
+          "_id": "L602",
+          "name": "Psychological Development",
+          "description": "Understanding human growth and behavioral patterns.",
+          "module": "M106"
+        }
+      ]
     },
     {
       "_id": "M107",
       "name": "Fundamentals of Cartography",
       "description": "Introduction to map-making and geographic data representation.",
-      "course": "C107"
+      "course": "C107",
+      "lessons": [
+        {
+          "_id": "L701",
+          "name": "Map Projection Techniques",
+          "description": "Understanding different methods of representing the Earth's surface.",
+          "module": "M107"
+        },
+        {
+          "_id": "L702",
+          "name": "Geographic Information Systems",
+          "description": "Introduction to digital mapping and spatial analysis.",
+          "module": "M107"
+        }
+      ]
     }
-  ]
-  
+]
