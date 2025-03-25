@@ -17,6 +17,9 @@ export default function Modules() {
     <div>
       <ModulesControls />
       <br />
+      <br />
+      <br />
+      <br />
       <ListGroup className="rounded-0" id="wd-modules">
         {modules.map((module: any) => (
           <ListGroup.Item
