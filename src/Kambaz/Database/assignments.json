@@ -1,0 +1,23 @@
+[
+    { "_id": "A101", "title": "Culinary Techniques Portfolio", "course": "C101" },
+    { "_id": "A102", "title": "Cuisine History Research Paper", "course": "C101" },
+    { "_id": "A103", "title": "Advanced Cooking Methods Project", "course": "C101" },
+    { "_id": "A201", "title": "Debate Strategy Analysis", "course": "C102" },
+    { "_id": "A202", "title": "Public Speaking Performance", "course": "C102" },
+    { "_id": "A203", "title": "Argumentation Case Study", "course": "C102" },
+    { "_id": "A301", "title": "French Conversation Presentation", "course": "C103" },
+    { "_id": "A302", "title": "French Grammar Composition", "course": "C103" },
+    { "_id": "A303", "title": "Cultural Context Essay", "course": "C103" },
+    { "_id": "A401", "title": "Rock Formation Field Report", "course": "C104" },
+    { "_id": "A402", "title": "Geological Processes Analysis", "course": "C104" },
+    { "_id": "A403", "title": "Earth Science Research Project", "course": "C104" },
+    { "_id": "A501", "title": "Latin Translation Exercise", "course": "C105" },
+    { "_id": "A502", "title": "Classical Literature Analysis", "course": "C105" },
+    { "_id": "A503", "title": "Latin Grammar Comprehensive Test", "course": "C105" },
+    { "_id": "A601", "title": "Psychological Case Study", "course": "C106" },
+    { "_id": "A602", "title": "Cognitive Processes Research Paper", "course": "C106" },
+    { "_id": "A603", "title": "Human Behavior Analysis Project", "course": "C106" },
+    { "_id": "A701", "title": "Map Design Project", "course": "C107" },
+    { "_id": "A702", "title": "Geographic Data Visualization", "course": "C107" },
+    { "_id": "A703", "title": "GIS Mapping Assignment", "course": "C107" }
+  ]
