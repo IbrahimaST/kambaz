@@ -11,15 +11,20 @@ import { courses } from "../Database";
 
 export default function Courses() {
   const { cid } = useParams();
-  console.log("CID in Courses:", cid);
-  const course = courses.find((course) => course._id === cid);
   const { pathname } = useLocation();
+
+  const course = courses.find((course) => course._id === cid);
+
+  if (!course) {
+    console.error("No course found for ID:", cid);
+    return <div>Course not found. Current path: {pathname}</div>;
+  }
 
   return (
     <div id="wd-courses" className="wd-main-content-offset">
       <h2 className="text-danger">
         <FaAlignJustify className="me-4 fs-4 mb-1" />
-        {course && course.name} &gt; {pathname.split("/")[4]}
+        {course.name} &gt; {pathname.split("/").pop()}
       </h2>
       <hr />
       <div className="d-flex">
@@ -28,7 +33,7 @@ export default function Courses() {
         </div>
         <div className="flex-fill">
           <Routes>
-            <Route path="/" element={<Navigate to="Home" />} />
+            <Route path="" element={<Navigate to="Home" />} />
             <Route path="Home" element={<Home />} />
             <Route path="Modules" element={<Modules />} />
             <Route path="Assignments" element={<Assignments />} />

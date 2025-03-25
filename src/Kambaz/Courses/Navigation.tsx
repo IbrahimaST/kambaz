@@ -24,7 +24,6 @@ export default function CourseNavigation({ cid }) {
         <Link
           key={index}
           to={`/Kambaz/Courses/${cid}/${link}`}
-          id="wd-course-home-link"
           className={`list-group-item text-danger ${
             currentPage === link ? "active text-black" : ""
           } border border-0`}
