@@ -6,10 +6,10 @@ import { FaCheckCircle } from "react-icons/fa";
 import { assignments } from "../../Database";
 
 export default function Assignments() {
-  const { courseId } = useParams<{ courseId: string }>();
+  const { cid } = useParams();
 
   const courseAssignments = assignments.filter(
-    (assignment) => assignment.course === courseId
+    (assignment) => assignment.course === cid
   );
 
   return (
@@ -59,7 +59,7 @@ export default function Assignments() {
                 <BsGripVertical size={25} className="me-2 fs-3" />
                 <LuClipboardPen size={25} className="text-success me-2" />
                 <a
-                  href={`#/Courses/${courseId}/Assignments/${assignment._id}`}
+                  href={`#/Courses/${cid}/Assignments/${assignment._id}`}
                   className="text-decoration-none text-dark fw-bold"
                 >
                   {assignment.title}
