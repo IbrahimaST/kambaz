@@ -183,15 +183,12 @@ export default function AssignmentEditor() {
 
         <div className="d-flex justify-content-end gap-2">
           <Link
-            to={`/Courses/${courseId}/Assignments`}
+            to={`/Courses/${cid}/Assignments`}
             className="btn btn-secondary"
           >
             Cancel
           </Link>
-          <Link
-            to={`/Courses/${courseId}/Assignments`}
-            className="btn btn-danger"
-          >
+          <Link to={`/Courses/${cid}/Assignments`} className="btn btn-danger">
             Save
           </Link>
         </div>
