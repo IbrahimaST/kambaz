@@ -1,6 +1,18 @@
-import { Form, Button, Card } from "react-bootstrap";
+import { useParams, Link } from "react-router-dom";
+import { Form, Card } from "react-bootstrap";
+import { assignments } from "../../Database";
 
 export default function AssignmentEditor() {
+  const { courseId, assignmentId } = useParams();
+
+  const assignment = assignments.find(
+    (assign) => assign._id === assignmentId && assign.course === courseId
+  );
+
+  if (!assignment) {
+    return <div>Assignment not found</div>;
+  }
+
   return (
     <div id="wd-assignments-editor" className="p-4">
       <Form>
@@ -11,7 +23,7 @@ export default function AssignmentEditor() {
           <Form.Control
             type="text"
             id="wd-name"
-            defaultValue="A1 - ENV + HTML"
+            defaultValue={assignment.title}
             className="w-100"
           />
         </Form.Group>
@@ -170,8 +182,18 @@ export default function AssignmentEditor() {
         </Card>
 
         <div className="d-flex justify-content-end gap-2">
-          <Button variant="secondary">Cancel</Button>
-          <Button variant="danger">Save</Button>
+          <Link
+            to={`/Courses/${courseId}/Assignments`}
+            className="btn btn-secondary"
+          >
+            Cancel
+          </Link>
+          <Link
+            to={`/Courses/${courseId}/Assignments`}
+            className="btn btn-danger"
+          >
+            Save
+          </Link>
         </div>
       </Form>
     </div>
