@@ -14,7 +14,11 @@ export default function AssignmentEditor() {
   }
 
   return (
-    <div id="wd-assignments-editor" className="p-4">
+    <div
+      id="wd-assignments-editor"
+      className="p-4"
+      style={{ marginLeft: 0, paddingLeft: 0 }}
+    >
       <Form>
         <Form.Group className="mb-4">
           <Form.Label htmlFor="wd-name" className="fw-bold">

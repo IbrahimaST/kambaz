@@ -20,8 +20,13 @@ export default function Courses() {
     return <div>Course not found. Current path: {pathname}</div>;
   }
 
+  const isAssignmentEditor = pathname.includes("Assignments/");
+
   return (
-    <div id="wd-courses" className="wd-main-content-offset">
+    <div
+      id="wd-courses"
+      className={`wd-main-content-offset ${isAssignmentEditor ? "p-3" : ""}`}
+    >
       <h2 className="text-danger">
         <FaAlignJustify className="me-4 fs-4 mb-1" />
         {course.name} &gt; {pathname.split("/").pop()}
