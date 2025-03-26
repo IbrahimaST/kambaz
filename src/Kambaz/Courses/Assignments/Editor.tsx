@@ -3,10 +3,10 @@ import { Form, Card } from "react-bootstrap";
 import { assignments } from "../../Database";
 
 export default function AssignmentEditor() {
-  const { courseId, aid } = useParams();
+  const { cid, aid } = useParams();
 
   const assignment = assignments.find(
-    (assign) => assign._id === aid && assign.course === courseId
+    (assign) => assign._id === aid && assign.course === cid
   );
 
   if (!assignment) {
