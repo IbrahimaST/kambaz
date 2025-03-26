@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-export default function CourseNavigation({ cid }) {
+export default function CourseNavigation({ cid }: { cid: string }) {
   const links = [
     "Home",
     "Modules",
