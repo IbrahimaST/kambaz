@@ -26,6 +26,7 @@
           "font-synthesis"
         ]
       }
-    ]
+    ],
+    "typescript-config/consistent-casing": "off"
   }
 }
