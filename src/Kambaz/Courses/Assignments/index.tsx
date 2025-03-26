@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button, FormControl, ListGroup, Badge } from "react-bootstrap";
 import { BsPlus, BsGripVertical, BsThreeDots } from "react-icons/bs";
 import { LuClipboardPen } from "react-icons/lu";
@@ -58,12 +58,12 @@ export default function Assignments() {
               <div className="d-flex align-items-center">
                 <BsGripVertical size={25} className="me-2 fs-3" />
                 <LuClipboardPen size={25} className="text-success me-2" />
-                <a
-                  href={`#/Courses/${cid}/Assignments/${assignment._id}`}
+                <Link
+                  to={`/Courses/${cid}/Assignments/${assignment._id}`}
                   className="text-decoration-none text-dark fw-bold"
                 >
                   {assignment.title}
-                </a>
+                </Link>
                 <FaCheckCircle size={25} className="text-success ms-auto" />
                 <BsGripVertical size={25} className="ms-2" />
               </div>
