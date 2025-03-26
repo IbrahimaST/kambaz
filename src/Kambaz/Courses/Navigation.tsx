@@ -15,8 +15,6 @@ export default function CourseNavigation({ cid }) {
 
   const { pathname } = useLocation();
   const currentPage = pathname.split("/").pop();
-  console.log("Current Path:", pathname);
-  console.log("Receiving CID in navigation", cid);
 
   return (
     <div id="wd-courses-navigation" className="wd list-group fs-5 rounded-0">
