@@ -11,8 +11,6 @@ import {
 } from "react-bootstrap";
 import "../styles.css";
 import KambazNavigation from "../Navigation";
-import * as db from "../Database";
-import { useState } from "react";
 
 function uuidv4() {
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
@@ -22,28 +20,21 @@ function uuidv4() {
   });
 }
 
-export default function Dashboard() {
-  const [courses, setCourses] = useState<any[]>(db.courses);
-
-  const [course, setCourse] = useState<any>({
-    _id: "0",
-    name: "New Course",
-    number: "New Number",
-    startDate: "2023-09-10",
-    endDate: "2023-12-15",
-    image: "/images/latin.jpg",
-    description: "New Description",
-  });
-
-  const addNewCourse = () => {
-    const newCourse = { ...course, _id: uuidv4() };
-    setCourses([...courses, newCourse]);
-  };
-
-  const deleteCourse = (courseId: string) => {
-    setCourses(courses.filter((course) => course._id !== courseId));
-  };
-
+export default function Dashboard({
+  courses,
+  course,
+  setCourse,
+  addNewCourse,
+  deleteCourse,
+  updateCourse,
+}: {
+  courses: any[];
+  course: any;
+  setCourse: (course: any) => void;
+  addNewCourse: () => void;
+  deleteCourse: (course: any) => void;
+  updateCourse: () => void;
+}) {
   return (
     <div id="wd-dashboard" className="wd-main-content-offset">
       <KambazNavigation />
@@ -58,7 +49,14 @@ export default function Dashboard() {
         >
           Add
         </button>
-      </h5>{" "}
+        <button
+          className="btn btn-warning float-end me-2"
+          onClick={updateCourse}
+          id="wd-update-course-click"
+        >
+          Update
+        </button>
+      </h5>
       <br />
       <FormControl
         value={course.name}
