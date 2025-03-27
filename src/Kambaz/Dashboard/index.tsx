@@ -7,7 +7,6 @@ import {
   CardText,
   Row,
   Col,
-  Button,
   FormControl,
 } from "react-bootstrap";
 import "../styles.css";
@@ -99,7 +98,7 @@ export default function Dashboard() {
                     >
                       {course.description}
                     </CardText>
-                    <Button variant="primary">Go</Button>
+                    <button className="btn btn-primary">Go</button>
                     <button
                       onClick={(event) => {
                         event.preventDefault();
@@ -109,6 +108,16 @@ export default function Dashboard() {
                       id="wd-delete-course-click"
                     >
                       Delete
+                    </button>
+                    <button
+                      id="wd-edit-course-click"
+                      onClick={(event) => {
+                        event.preventDefault();
+                        setCourse(course);
+                      }}
+                      className="btn btn-warning me-2 float-end"
+                    >
+                      Edit
                     </button>
                   </CardBody>
                 </Link>
