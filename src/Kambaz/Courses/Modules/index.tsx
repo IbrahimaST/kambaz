@@ -5,17 +5,27 @@ import ModuleControlButtons from "./ModuleControlButtons";
 import { BsGripVertical } from "react-icons/bs";
 import { useParams } from "react-router";
 import * as db from "../../Database";
+import { useState } from "react";
 
 export default function Modules() {
   const { cid } = useParams();
-  const modules = db.modules.filter((module: any) => module.course === cid);
-
-  console.log("Course ID in Modules:", cid);
-  console.log("Filtered Modules:", modules);
+  const [modules, setModules] = useState<any[]>(db.modules);
+  const [moduleName, setModuleName] = useState("");
+  const addModule = () => {
+    setModules([
+      ...modules,
+      { _id: uuidv4(), name: moduleName, course: cid, lessons: [] },
+    ]);
+    setModuleName("");
+  };
 
   return (
     <div>
-      <ModulesControls />
+      <ModulesControls
+        setModuleName={setModuleName}
+        moduleName={moduleName}
+        addModule={addModule}
+      />
       <br />
       <br />
       <br />
