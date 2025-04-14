@@ -6,6 +6,7 @@ import { BsGripVertical } from "react-icons/bs";
 import { useParams } from "react-router";
 import * as db from "../../Database";
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Modules() {
   const { cid } = useParams();
