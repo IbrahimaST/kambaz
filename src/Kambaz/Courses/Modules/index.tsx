@@ -7,28 +7,36 @@ import { useParams } from "react-router";
 import * as db from "../../Database";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import { addModule, editModule, updateModule, deleteModule } from "./reducer";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function Modules() {
   const { cid } = useParams();
-  const [modules, setModules] = useState<any[]>(db.modules);
   const [moduleName, setModuleName] = useState("");
+  const { modules } = useSelector((state: any) => state.modulesReducer);
+  const dispatch = useDispatch();
+
   const addModule = () => {
-    setModules([
+    modules([
       ...modules,
       { _id: uuidv4(), name: moduleName, course: cid, lessons: [] },
     ]);
     setModuleName("");
   };
   const deleteModule = (moduleId: string) => {
-    setModules(modules.filter((m) => m._id !== moduleId));
+    modules(modules.filter((m: { _id: string }) => m._id !== moduleId));
   };
   const editModule = (moduleId: string) => {
-    setModules(
-      modules.map((m) => (m._id === moduleId ? { ...m, editing: true } : m))
+    modules(
+      modules.map((m: { _id: string }) =>
+        m._id === moduleId ? { ...m, editing: true } : m
+      )
     );
   };
   const updateModule = (module: any) => {
-    setModules(modules.map((m) => (m._id === module._id ? module : m)));
+    modules(
+      modules.map((m: { _id: any }) => (m._id === module._id ? module : m))
+    );
   };
 
   return (
