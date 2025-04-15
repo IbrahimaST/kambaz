@@ -1,4 +1,4 @@
-import { Button, FormControl } from "react-bootstrap";
+import { FormControl } from "react-bootstrap";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { setCurrentUser } from "./reducer";
@@ -46,13 +46,17 @@ export default function Signin() {
         id="wd-signin-btn"
         to="/Kambaz/Account/Profile"
         className="btn btn-primary w-100 mb-2"
+        onClick={(e) => {
+          e.preventDefault();
+          signin();
+        }}
       >
         Sign in{" "}
       </Link>
       <br />
-      <Button onClick={signin} id="wd-signup-link">
+      <Link to="/Kambaz/Account/Signup" id="wd-signup-link">
         Sign up
-      </Button>
+      </Link>
     </div>
   );
 }
