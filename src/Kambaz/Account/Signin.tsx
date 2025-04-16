@@ -51,7 +51,7 @@ export default function Signin() {
           signin();
         }}
       >
-        Sign in{" "}
+        Sign in
       </Link>
       <br />
       <Link to="/Kambaz/Account/Signup" id="wd-signup-link">
