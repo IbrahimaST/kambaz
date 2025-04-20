@@ -55,6 +55,11 @@ export default function Dashboard() {
   const isFaculty =
     currentUser?.role === "FACULTY" || currentUser?.role === "ADMIN";
 
+  console.log("currentUser", currentUser);
+  console.log("courses", courses);
+  console.log("selectedCourse", selectedCourse);
+  console.log("enrollments", enrollments);
+
   return (
     <div id="wd-dashboard" className="wd-main-content-offset">
       <KambazNavigation />
@@ -112,13 +117,14 @@ export default function Dashboard() {
       <div id="wd-dashboard-courses">
         <Row xs={1} md={4} lg={5} className="g-4">
           {courses
-            .filter((course) =>
-              enrollments.some(
+            .filter((course) => {
+              if (isFaculty) return true; // all courses show for faculty
+              return enrollments.some(
                 (enrollment) =>
                   enrollment.user === currentUser._id &&
                   enrollment.course === course._id
-              )
-            )
+              );
+            })
             .map((course) => (
               <Col className="wd-dashboard-course" style={{ width: "260px" }}>
                 <Card>
