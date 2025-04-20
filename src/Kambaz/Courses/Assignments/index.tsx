@@ -2,8 +2,11 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { Button, FormControl, ListGroup, Badge } from "react-bootstrap";
 import { BsPlus, BsGripVertical, BsThreeDots } from "react-icons/bs";
 import { LuClipboardPen } from "react-icons/lu";
-import { FaCheckCircle } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { deleteAssignment } from "./reducer";
+import { useState } from "react";
 
 export default function Assignments() {
   const { cid } = useParams();
@@ -13,6 +16,9 @@ export default function Assignments() {
   const courseAssignments = assignments.filter(
     (assignment: any) => assignment.course === cid
   );
+
+  const dispatch = useDispatch();
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
 
   console.log("Rendering Assignments screen");
   console.log("cid from URL:", cid);
@@ -70,7 +76,12 @@ export default function Assignments() {
                 >
                   {assignment.title}
                 </Link>
-                <FaCheckCircle size={25} className="text-success ms-auto" />
+                <FaTrash
+                  size={25}
+                  className="text-success ms-auto"
+                  onClick={() => setConfirmDeleteId(assignment._id)}
+                />
+
                 <BsGripVertical size={25} className="ms-2" />
               </div>
               <div className="ms-5">
@@ -83,6 +94,32 @@ export default function Assignments() {
           </ListGroup.Item>
         ))}
       </ListGroup>
+      {confirmDeleteId && (
+        <div
+          className="position-fixed top-50 start-50 translate-middle bg-white shadow p-4 rounded border"
+          style={{ zIndex: 999 }}
+        >
+          <h5>Delete Assignment?</h5>
+          <p>Are you sure you want to delete this assignment?</p>
+          <div className="d-flex justify-content-end gap-2">
+            <Button
+              variant="secondary"
+              onClick={() => setConfirmDeleteId(null)}
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="danger"
+              onClick={() => {
+                dispatch(deleteAssignment(confirmDeleteId));
+                setConfirmDeleteId(null);
+              }}
+            >
+              Delete
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
