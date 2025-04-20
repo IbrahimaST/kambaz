@@ -14,6 +14,9 @@ export default function Assignments() {
     (assignment: any) => assignment.course === cid
   );
 
+  console.log("Rendering Assignments screen");
+  console.log("cid from URL:", cid);
+  console.log("assignments:", assignments);
   return (
     <div id="wd-assignments" className="p-3">
       <div className="d-flex justify-content-between align-items-center mb-3">
@@ -52,7 +55,7 @@ export default function Assignments() {
           </div>
         </ListGroup.Item>
 
-        {courseAssignments.map((assignment: any, index: number) => (
+        {courseAssignments.map((assignment: any) => (
           <ListGroup.Item
             key={assignment._id}
             className="p-0 border-start border-success border-3"

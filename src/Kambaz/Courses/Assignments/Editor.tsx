@@ -1,14 +1,19 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Form, Card } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
-import { useState } from "react";
-import { addAssignment } from "./reducer";
+import { useState, useEffect } from "react";
+import { addAssignment, updateAssignment } from "./reducer";
 
 export default function AssignmentEditor() {
-  const { cid } = useParams();
+  const { cid, aid } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+  const existingAssignment = assignments.find((a: any) => a._id === aid);
+
+  const isEditing = aid !== "new";
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -17,9 +22,20 @@ export default function AssignmentEditor() {
   const [availableFrom, setAvailableFrom] = useState("2024-05-06");
   const [availableUntil, setAvailableUntil] = useState("2024-05-20");
 
+  useEffect(() => {
+    if (isEditing && existingAssignment) {
+      setTitle(existingAssignment.title || "");
+      setDescription(existingAssignment.description || "");
+      setPoints(existingAssignment.points || "100");
+      setDueDate(existingAssignment.dueDate || "2024-05-13");
+      setAvailableFrom(existingAssignment.availableFrom || "2024-05-06");
+      setAvailableUntil(existingAssignment.availableUntil || "2024-05-20");
+    }
+  }, [isEditing, existingAssignment]);
+
   const handleSave = () => {
-    const newAssignment = {
-      _id: uuidv4(),
+    const data = {
+      _id: isEditing ? aid : uuidv4(),
       course: cid,
       title,
       description,
@@ -28,7 +44,17 @@ export default function AssignmentEditor() {
       availableFrom,
       availableUntil,
     };
-    dispatch(addAssignment(newAssignment));
+
+    if (isEditing) {
+      dispatch(updateAssignment(data));
+    } else {
+      dispatch(addAssignment(data));
+    }
+
+    navigate(`/Courses/${cid}/Assignments`);
+  };
+
+  const handleCancel = () => {
     navigate(`/Courses/${cid}/Assignments`);
   };
 
@@ -103,7 +129,7 @@ export default function AssignmentEditor() {
           <button
             type="button"
             className="btn btn-secondary"
-            onClick={() => navigate(`/Courses/${cid}/Assignments`)}
+            onClick={handleCancel}
           >
             Cancel
           </button>
