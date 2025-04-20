@@ -20,7 +20,7 @@ export default function Labs() {
           <Route path="/Lab2/*" element={<Lab2 />}></Route>
           <Route path="/Lab3" element={<Lab3 />}></Route>
           <Route path="/Lab4" element={<Lab4 />}></Route>
-          <Route path="/Lab5" element={<Lab5 />}></Route>
+          <Route path="/Lab5/*" element={<Lab5 />}></Route>
         </Routes>
       </div>
     </Provider>
