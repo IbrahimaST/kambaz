@@ -1,15 +1,17 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Button, FormControl, ListGroup, Badge } from "react-bootstrap";
 import { BsPlus, BsGripVertical, BsThreeDots } from "react-icons/bs";
 import { LuClipboardPen } from "react-icons/lu";
 import { FaCheckCircle } from "react-icons/fa";
-import { assignments } from "../../Database";
+import { useSelector } from "react-redux";
 
 export default function Assignments() {
   const { cid } = useParams();
+  const navigate = useNavigate();
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
 
   const courseAssignments = assignments.filter(
-    (assignment) => assignment.course === cid
+    (assignment: any) => assignment.course === cid
   );
 
   return (
@@ -24,7 +26,10 @@ export default function Assignments() {
           <Button variant="secondary" className="me-2">
             <BsPlus size={20} /> Group
           </Button>
-          <Button variant="danger">
+          <Button
+            variant="danger"
+            onClick={() => navigate(`/Courses/${cid}/Assignments/new`)}
+          >
             <BsPlus size={20} /> Assignment
           </Button>
         </div>
@@ -36,20 +41,18 @@ export default function Assignments() {
             <div>
               <BsGripVertical className="me-2 fs-3" /> ASSIGNMENTS
             </div>
-            <div>
-              <Badge
-                bg="light"
-                text="dark"
-                className="px-3 py-2 rounded-pill d-flex align-items-center"
-              >
-                40% of Total <BsPlus />
-                <BsThreeDots />
-              </Badge>
-            </div>
+            <Badge
+              bg="light"
+              text="dark"
+              className="px-3 py-2 rounded-pill d-flex align-items-center"
+            >
+              40% of Total <BsPlus />
+              <BsThreeDots />
+            </Badge>
           </div>
         </ListGroup.Item>
 
-        {courseAssignments.map((assignment, index) => (
+        {courseAssignments.map((assignment: any, index: number) => (
           <ListGroup.Item
             key={assignment._id}
             className="p-0 border-start border-success border-3"
@@ -69,10 +72,8 @@ export default function Assignments() {
               </div>
               <div className="ms-5">
                 <p className="mb-0">
-                  <span className="text-danger">Multiple Modules</span> |
-                  <b> Not available until</b> {` May ${6 + index * 7} `} at
-                  12:00am |<b> Due</b> {` May ${13 + index * 7} `} at 11:59pm |
-                  100 pts
+                  <b>Due</b> {assignment.dueDate} | <b>Points</b>{" "}
+                  {assignment.points}
                 </p>
               </div>
             </div>
