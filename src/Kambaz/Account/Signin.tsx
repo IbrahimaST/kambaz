@@ -1,21 +1,28 @@
-import { FormControl } from "react-bootstrap";
+import { FormControl, Button } from "react-bootstrap";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { setCurrentUser } from "./reducer";
 import { useDispatch } from "react-redux";
 import * as db from "../Database";
 
 export default function Signin() {
-  const [credentials, setCredentials] = useState<any>({});
+  const [credentials, setCredentials] = useState<any>({
+    username: "",
+    password: "",
+  });
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const signin = () => {
     const user = db.users.find(
       (u: any) =>
         u.username === credentials.username &&
         u.password === credentials.password
     );
-    if (!user) return;
+    if (!user) {
+      alert("Invalid username or password");
+      return;
+    }
     dispatch(setCurrentUser(user));
     navigate("/Kambaz/Dashboard");
   };
@@ -26,7 +33,7 @@ export default function Signin() {
       <FormControl
         id="wd-username"
         placeholder="username"
-        defaultValue={credentials.username}
+        value={credentials.username}
         onChange={(e) =>
           setCredentials({ ...credentials, username: e.target.value })
         }
@@ -35,28 +42,24 @@ export default function Signin() {
       <FormControl
         id="wd-password"
         placeholder="password"
-        defaultValue={credentials.password}
+        type="password"
+        value={credentials.password}
         onChange={(e) =>
           setCredentials({ ...credentials, password: e.target.value })
         }
-        type="password"
         className="mb-2"
       />
-      <Link
+      <Button
         id="wd-signin-btn"
-        to="/Kambaz/Account/Profile"
         className="btn btn-primary w-100 mb-2"
-        onClick={(e) => {
-          e.preventDefault();
-          signin();
-        }}
+        onClick={signin}
       >
         Sign in
-      </Link>
+      </Button>
       <br />
-      <Link to="/Kambaz/Account/Signup" id="wd-signup-link">
+      <a href="#/Kambaz/Account/Signup" id="wd-signup-link">
         Sign up
-      </Link>
+      </a>
     </div>
   );
 }
