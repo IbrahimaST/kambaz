@@ -15,13 +15,31 @@ export default function Courses() {
   const { pathname } = location;
 
   const { courses } = useSelector((state: any) => state.courses);
-  const course = courses.find((course: any) => course._id === cid);
+  const course = courses.find(
+    (c: { _id: string | undefined }) => c._id === cid
+  );
+  const enrollments = useSelector((state: any) => state.enrollments);
+  const currentUser = useSelector(
+    (state: any) => state.accountReducer.currentUser
+  );
 
   if (!course) {
     return <div>Course not found.</div>;
   }
 
+  const isEnrolled = enrollments.some(
+    (e: any) => e.user === currentUser?._id && e.course === cid
+  );
+
+  if (!isEnrolled && currentUser?.role !== "FACULTY") {
+    return <Navigate to="/Kambaz/Dashboard" replace />;
+  }
+
   const isAssignmentEditor = pathname.includes("Assignments/");
+
+  if (!isEnrolled && currentUser?.role !== "FACULTY") {
+    return <Navigate to="/Kambaz/Dashboard" />;
+  }
 
   return (
     <div

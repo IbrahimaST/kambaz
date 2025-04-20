@@ -71,13 +71,13 @@ export default function Dashboard() {
   return (
     <div id="wd-dashboard" className="wd-main-content-offset">
       <KambazNavigation />
-      <h1 id="wd-dashboard-title">Dashboard</h1>
       <Button
         className="btn btn-info float-end"
         onClick={toggleEnrollmentsView}
       >
-        Enrollments
+        {showAllCourses ? "Show Enrolled Only" : "Show All Courses"}
       </Button>
+      <h1 id="wd-dashboard-title">Dashboard</h1>
 
       <hr />
 
@@ -163,7 +163,7 @@ export default function Dashboard() {
                       {course.description}
                     </CardText>
 
-                    {/* Enroll/Unenroll logic for non-faculty */}
+                    {/* Non-faculty users: show enroll/unenroll buttons */}
                     {!isFaculty &&
                       (isUserEnrolled(course._id) ? (
                         <Button
@@ -197,6 +197,7 @@ export default function Dashboard() {
                         </Button>
                       ))}
 
+                    {/* Faculty-only actions */}
                     {isFaculty && (
                       <>
                         <Button className="btn btn-primary">Go</Button>
