@@ -1,8 +1,9 @@
 import express from 'express'
 import Hello from "./Hello.js"
-import Lab5 from "./Lab5/index.js";
+import registerLab5Routes from "./lab5.routes";
+
 const app = express()
-Lab5(app)
+registerLab5Routes(app);
 Hello(app)
 app.listen(4000)
 
