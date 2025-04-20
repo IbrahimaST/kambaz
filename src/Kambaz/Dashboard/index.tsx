@@ -127,7 +127,16 @@ export default function Dashboard() {
       )}
 
       <br />
-      <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>
+      <h2 id="wd-dashboard-published">
+        {isFaculty
+          ? `Published Courses (${courses.length})`
+          : showAllCourses
+          ? `All Courses (${courses.length})`
+          : `Enrolled Courses (${
+              courses.filter((c) => isUserEnrolled(c._id)).length
+            })`}
+      </h2>
+
       <hr />
       <div id="wd-dashboard-courses">
         <Row xs={1} md={4} lg={5} className="g-4">
@@ -229,6 +238,14 @@ export default function Dashboard() {
             </Col>
           ))}
         </Row>
+        {!isFaculty &&
+          !showAllCourses &&
+          courses.filter((c) => isUserEnrolled(c._id)).length === 0 && (
+            <div className="text-muted mt-4 text-center">
+              You are not enrolled in any courses. Click "Show All Courses" to
+              enroll.
+            </div>
+          )}
       </div>
     </div>
   );
