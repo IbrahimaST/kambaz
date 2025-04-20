@@ -8,71 +8,104 @@ import {
   Row,
   Col,
   FormControl,
+  Button,
 } from "react-bootstrap";
 import "../styles.css";
 import KambazNavigation from "../Navigation";
-import { useSelector } from "react-redux";
-import * as db from "../Database";
-
-export default function Dashboard({
-  courses,
-  course,
-  setCourse,
-  addNewCourse,
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addCourse,
   deleteCourse,
   updateCourse,
-}: {
-  courses: any[];
-  course: any;
-  setCourse: (course: any) => void;
-  addNewCourse: () => void;
-  deleteCourse: (course: any) => void;
-  updateCourse: () => void;
-}) {
-  const { currentUser } = useSelector((state: any) => state.accountReducer);
+  setSelectedCourse,
+} from "../Courses/reducer";
+
+type Course = {
+  _id: string;
+  name: string;
+  number: string;
+  description: string;
+  startDate?: string;
+  endDate?: string;
+  department?: string;
+  credits?: number;
+};
+
+type Enrollment = {
+  user: string;
+  course: string;
+};
+
+export default function Dashboard() {
+  const { currentUser } = useSelector(
+    (state: any) => state.accountReducer || {}
+  );
+  const {
+    courses,
+    selectedCourse,
+  }: { courses: Course[]; selectedCourse: Course | null } = useSelector(
+    (state: any) => state.courses || {}
+  );
+  const enrollments: Enrollment[] = useSelector(
+    (state: any) => state.enrollments || []
+  );
+
+  const dispatch = useDispatch();
+
   const isFaculty =
     currentUser?.role === "FACULTY" || currentUser?.role === "ADMIN";
-  const { enrollments } = db;
+
   return (
     <div id="wd-dashboard" className="wd-main-content-offset">
       <KambazNavigation />
       <h1 id="wd-dashboard-title">Dashboard</h1>
       <hr />
+
       {isFaculty && (
         <div>
           <h5>
             New Course
-            <button
+            <Button
               id="wd-add-new-course-click"
               className="btn btn-primary float-end"
-              onClick={addNewCourse}
+              onClick={() => dispatch(addCourse())}
             >
               Add
-            </button>
-            <button
+            </Button>
+            <Button
               className="btn btn-warning float-end me-2"
-              onClick={updateCourse}
+              onClick={() => dispatch(updateCourse(selectedCourse))}
               id="wd-update-course-click"
             >
               Update
-            </button>
+            </Button>
           </h5>
           <br />
           <FormControl
-            value={course.name}
+            value={selectedCourse?.name || ""}
             className="mb-2"
-            onChange={(e) => setCourse({ ...course, name: e.target.value })}
+            onChange={(e) =>
+              dispatch(
+                setSelectedCourse({ ...selectedCourse, name: e.target.value })
+              )
+            }
           />
           <FormControl
             as="textarea"
-            value={course.description}
+            value={selectedCourse?.description || ""}
             rows={3}
             onChange={(e) =>
-              setCourse({ ...course, description: e.target.value })
+              dispatch(
+                setSelectedCourse({
+                  ...selectedCourse,
+                  description: e.target.value,
+                })
+              )
             }
           />
         </div>
       )}
+
       <br />
       <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2>
       <hr />
@@ -108,27 +141,27 @@ export default function Dashboard({
                       >
                         {course.description}
                       </CardText>
-                      <button className="btn btn-primary">Go</button>
-                      <button
+                      <Button className="btn btn-primary">Go</Button>
+                      <Button
                         onClick={(event) => {
                           event.preventDefault();
-                          deleteCourse(course._id);
+                          dispatch(deleteCourse(course._id));
                         }}
                         className="btn btn-danger float-end"
                         id="wd-delete-course-click"
                       >
                         Delete
-                      </button>
-                      <button
+                      </Button>
+                      <Button
                         id="wd-edit-course-click"
                         onClick={(event) => {
                           event.preventDefault();
-                          setCourse(course);
+                          dispatch(setSelectedCourse(course));
                         }}
                         className="btn btn-warning me-2 float-end"
                       >
                         Edit
-                      </button>
+                      </Button>
                     </CardBody>
                   </Link>
                 </Card>

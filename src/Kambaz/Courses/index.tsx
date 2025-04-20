@@ -7,16 +7,18 @@ import AssignmentEditor from "./Assignments/Editor";
 import { FaAlignJustify } from "react-icons/fa";
 import PeopleTable from "./People/Table";
 import "../styles.css";
+import { useSelector } from "react-redux";
 
-export default function Courses({ courses }: { courses: any[] }) {
+export default function Courses() {
   const { cid } = useParams();
-  const { pathname } = useLocation();
+  const location = useLocation();
+  const { pathname } = location;
 
-  const course = courses.find((course) => course._id === cid);
+  const { courses } = useSelector((state: any) => state.courses);
+  const course = courses.find((course: any) => course._id === cid);
 
   if (!course) {
-    console.error("No course found for ID:", cid);
-    return <div>Course not found. Current path: {pathname}</div>;
+    return <div>Course not found.</div>;
   }
 
   const isAssignmentEditor = pathname.includes("Assignments/");
